@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      background-color: #f5f5f5;
+      padding: 10px;
+    }
+    .details-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      margin: 20px;
+      padding: 20px;
+    }
+    .details-container img, .details-container video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .details-title {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+    .details-text {
+      color: #555;
+      font-size: 0.9em;
+      line-height: 1.5;
+      margin: 0 0 20px;
+    }
+    .additional-images {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .additional-images img {
+      width: 48%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .details-container {
+        margin: 10px;
+        padding: 15px;
+      }
+      .details-title {
+        font-size: 1.2em;
+        margin: 15px 0;
+      }
+      .details-text {
+        font-size: 0.8em;
+      }
+      .additional-images img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="details-container">
+    <div id="media-container">
+      <img src="https://via.placeholder.com/800x400" alt="Blog Post Image" id="main-image">
+    </div>
+    <h1 class="details-title" id="post-title">Blog Post Title</h1>
+    <p class="details-text" id="post-text">
+      This is the full description of the blog post. It includes more details and additional images.
+    </p>
+    <div class="additional-images" id="additional-images">
+      <img src="/blogs/photos/232 (1).jpg" alt="Additional Image 1">
+      <img src="/blogs/photos/232 (2).jpg" alt="Additional Image 2">
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get('id');
+      
+      const postDetails = {
+        1: {
+          title: "অসুস্থ , অসহায় মানুষদের মাঝে সাহায্য সহযোগিতা",
+          mainImage: "/photos/121.jpg",
+          text: `ক্যান্সার, কিডনী, লিভার সিরোসিস, স্ট্রোকে প্যারালাইজড, জন্মগত হৃদরোগ এবং থ্যালাসেমিয়া আক্রান্ত রোগীদের মাঝে এককালীন ৫০ (পঞ্চাশ হাজার) টাকার আর্থিক অনুদানের
+          চেক বিতরণ অনুষ্ঠান-২০২৪
+          আয়োজনে: উপজেলা প্রশাসন ও উপজেলা সমাজসেবা কার্যালয়, জামালপুর সদর, জামালপুর।
+          স্থান :উপজেলা পরিষদ কমপ্লেক্স, জামালপুর।`,
+          additionalImages: ["/blogs/photos/232 (1).jpg", "/blogs/photos/232 (2).jpg"]
+        },
+        2: {
+          title: "কৃষি সম্প্রসারণ এর লক্ষে মতবিনিময় এবং বিনামূল্যে বীজ ও সার বিতরণ ",
+          mainImage: "/photos/1212.jpg",
+          text: `২০২৩-২৪ অর্থবছরে প্রণোদনা কর্মসূচীর আওতায় খরিপ-২/২০২৪-২৫ মৌসুমে রোপা আমন ধানের উফশী জাত ব্যবহারের মাধ্যমে আবাদ ও উৎপাদন বৃদ্ধির লক্ষ্যে ক্ষুদ্র ও প্রান্তিক কৃষকদের মাঝে
+          বিনামূল্যে বীজ ও সার বিতরণের 
+          শুভ উদ্বোধন 
+          আয়োজনে: উপজেলা প্রশাসন ও কৃষি সম্প্রসারণ অধিদপ্তর জামালপুর সদর, জামালপুর।
+          স্থান :উপজেলা পরিষদ কমপ্লেক্স, জামালপুর।`,
+          additionalImages: ["/blogs/photos/1234 (1).jpg", "/blogs/photos/1234 (2).jpg"]
+        },
+        3: {
+          title: "বংশাই খাল উপ-প্রকল্পের বংশাই খান পুনঃ খনন",
+          mainImage: "/photos/12345 (2).jpg",
+          text: `গনপ্রজাতন্ত্রী বাংলাদেশ সরকার 
+          স্থানীয় সরকার প্রকৌশল অধিদপ্তর (এলজিইডি)
+          ক্ষুদকার পানি উন্নয়ন প্রকল্প (২য় পর্যায়-জাইকা) এর আওতায় বংশাই খাল উপ-প্রকল্পের 
+          শুভ উদ্বোধন 
+          বাস্তবায়নে : স্থানীয় সরকার প্রকৌশল অধিদপ্তর (এলজিইডি)
+          স্থান : শাহবাজপুর ইউনিয়ন।`,
+          additionalImages: ["/blogs/photos/12345 (1).jpg", "/blogs/photos/12345 (3).jpg", "/blogs/photos/23423.jpg","/blogs/photos/34534535.jpg"]
+        },
+        4: {
+          title: "ঈদের শুভেচ্ছা বার্তা",
+          mainImage: "", // No main image, video will be shown instead
+          video: "/blogs/videos/video-23.mp4",
+          text: `পবিত্র ঈদ উল আযহা উপলক্ষ্যে সকলকে জানাই আন্তরিক শুভেচ্ছা ও মোবারকবাদ।ঈদ মোবারক।`,
+        },
+        5: {
+          title: "জাতীয় সংসদে জামালপুর নিয়ে গুরুত্ব আলোচনা ",
+          mainImage: "", // No main image, video will be shown instead
+          video: "/blogs/videos/video-24.mp4",
+          text: `দ্বাদশ জাতীয় সংসদ অধিবেশনে আমার নিজ নির্বাচনী এলাকা বিষয়ক চাহিদা ও ভাবনা।
+          তারিখঃ ১১ জুন ২০২৪`,
+        }
+        // Add more posts here
+      };
+
+      if (postId && postDetails[postId]) {
+        const post = postDetails[postId];
+        document.getElementById('post-title').innerText = post.title;
+        document.getElementById('post-text').innerText = post.text;
+
+        const mediaContainer = document.getElementById('media-container');
+        if (post.video) {
+          const videoElement = document.createElement('video');
+          videoElement.id = "videoPlayer";
+          videoElement.controls = true;
+          const sourceElement = document.createElement('source');
+          sourceElement.src = post.video;
+          sourceElement.type = "video/mp4";
+          videoElement.appendChild(sourceElement);
+          mediaContainer.innerHTML = ''; // Clear any existing media
+          mediaContainer.appendChild(videoElement);
+        } else {
+          const imgElement = document.createElement('img');
+          imgElement.src = post.mainImage;
+          imgElement.alt = "Blog Post Image";
+          imgElement.id = "main-image";
+          mediaContainer.innerHTML = ''; // Clear any existing media
+          mediaContainer.appendChild(imgElement);
+        }
+
+        const additionalImagesContainer = document.getElementById('additional-images');
+        additionalImagesContainer.innerHTML = '';
+        post.additionalImages.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          additionalImagesContainer.appendChild(img);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
